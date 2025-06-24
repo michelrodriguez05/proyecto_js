@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>XXOPIN | Tienda Online</title>
+  <link rel="stylesheet" href="estilos.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="logo">XXOPIN</div>
+    <input type="text" id="busqueda" placeholder="Buscar productos..." />
+    <div class="iconos">
+      <button onclick="scrollToCategorias()" title="Ir a categorías">🏷️</button>
+      <button onclick="toggleCarrito()" title="Ver carrito">🛒</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="contenido">
+        <h1>Bienvenido a XXOPIN</h1>
+        <p>Tu tienda, tu estilo</p>
+        <a href="#productos" class="boton">COMPRA AHORA!</a>
+      </div>
+    </section>
+
+    <section class="filtros">
+      <select id="filtroCategoria">
+        <option value="todos">Todas las categorías</option>
+      </select>
+
+      <select id="filtroPrecio">
+        <option value="todos">Todos los precios</option>
+        <option value="0-50">$0 - $50</option>
+        <option value="50-100">$50 - $100</option>
+        <option value="100+">Más de $100</option>
+      </select>
+    </section>
+
+    <section id="productos" class="productos"></section>
+
+    <section id="categorias" class="categorias">
+      <h2>Categorías</h2>
+      <div id="listaCategorias" class="carrusel"></div>
+    </section>
+  </main>
+
+  <aside id="carrito" class="carrito oculto">
+    <h2>Tu carrito</h2>
+    <div id="contenidoCarrito"></div>
+    <button onclick="comprar()">Comprar</button>
+  </aside>
+
+  <script src="app.js"></script>
+</body>
+</html>
