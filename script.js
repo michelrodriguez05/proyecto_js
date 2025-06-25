@@ -107,13 +107,19 @@ function eliminarDelCarrito(index) {
 }
 
 // Mostrar/ocultar carrito (imagen del ícono)
-document.getElementById("abrirCarrito").addEventListener("click", () => {
-  document.getElementById("carrito").classList.add("visible");
-});
-document.getElementById("cerrarCarrito").addEventListener("click", () => {
-  document.getElementById("carrito").classList.remove("visible");
-});
+const abrirCarrito = document.getElementById("abrirCarrito");
+const cerrarCarrito = document.getElementById("cerrarCarrito");
+const carritoContenedor = document.getElementById("carrito");
 
+if (abrirCarrito && cerrarCarrito && carritoContenedor) {
+  abrirCarrito.addEventListener("click", () => {
+    carritoContenedor.classList.add("visible");
+  });
+
+  cerrarCarrito.addEventListener("click", () => {
+    carritoContenedor.classList.remove("visible");
+  });
+}
 
 // Carga inicial
 renderizarCarrito();

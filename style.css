@@ -138,9 +138,7 @@ border-radius: 6px;
 border: none;
 width: 50%;
 }
-#carrito{
-  width: 30px;
-}
+
 /* Grid de productos */
 .productos-grid {
 display: grid;
@@ -211,6 +209,10 @@ z-index: 999;
 .carrito.visible {
 right: 0;
 }
+#iconoCarrito {
+   width: 30px;
+}
+
 
 #listaCarrito li {
 display: flex;
@@ -226,6 +228,7 @@ cursor: pointer;
 border-radius: 5px;
 margin-top: 20px;
 }
+
 
 /* RESPONSIVE */
 @media screen and (max-width: 600px) {
