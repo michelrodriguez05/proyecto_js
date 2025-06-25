@@ -114,6 +114,7 @@ document.getElementById("cerrarCarrito").addEventListener("click", () => {
   document.getElementById("carrito").classList.remove("visible");
 });
 
+
 // Carga inicial
 renderizarCarrito();
 cargarProductos();
