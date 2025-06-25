@@ -106,6 +106,7 @@ body {
 }
 .categoria-card:hover {
   transform: scale(1.05);
+    background-color: rgb(255, 72, 0);
 }
 
 
