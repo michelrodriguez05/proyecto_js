@@ -1,40 +1,39 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>XXOPIN - Tu Tienda Virtual</title>
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>XXOPIN - Tu Tienda Virtual</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-    <!-- Sección de categorías -->
-    <section class="categorias" id="seccionCategorias">
-        <h2>CATEGORÍAS</h2>
-        <div class="carrusel" id="carruselCategorias"></div>
-    </section>
+  <!-- Sección de categorías -->
+  <section class="categorias" id="seccionCategorias">
+    <h2 id="tituloh">CATEGORÍAS</h2>
+    <div class="carrusel" id="carruselCategorias"></div>
+  </section>
 
-    <!-- Sección de productos -->
-    <section class="productos" id="seccionProductos">
-        <div class="barra-superior">
-            <h2>XXOPIN</h2>
-            <input type="text" id="searchInput" placeholder="Buscar producto..." />
-            <div class="carrito-icono" id="abrirCarrito">
-                🛒 <span id="contadorCarrito">0</span>
-            </div>
-        </div>
-        <div class="productos-grid" id="productsGrid"></div>
-    </section>
-
-    <!-- Carrito lateral -->
-    <div class="carrito" id="carrito">
-        <h2>Carrito</h2>
-        <ul id="listaCarrito"></ul>
-        <p>Total: $<span id="totalCarrito">0</span></p>
-        <button id="cerrarCarrito">Cerrar</button>
+  <!-- Sección de productos -->
+  <section class="productos" id="seccionProductos">
+    <div class="barra-superior">
+      <h2>XXOPIN</h2>
+      <input type="text" id="searchInput" placeholder="Buscar producto..." />
+      <div class="carrito-icono" id="abrirCarrito">
+        <img src="./img/empty-cart_4555999 (1).png" alt="Carrito de compras" id="carrito"/>
+        <span id="contadorCarrito">0</span>
+      </div>
     </div>
+    <div class="productos-grid" id="productsGrid"></div>
+  </section>
 
-    <script src="script.js"></script>
+  <!-- Carrito lateral -->
+  <div class="carrito" id="carrito">
+    <h2>Carrito</h2>
+    <ul id="listaCarrito"></ul>
+    <p>Total: $<span id="totalCarrito">0</span></p>
+    <button id="cerrarCarrito">Cerrar</button>
+  </div>
+
+  <script src="script.js"></script>
 </body>
-
 </html>

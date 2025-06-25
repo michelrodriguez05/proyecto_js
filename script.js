@@ -1,25 +1,38 @@
-document.getElementById("btnEntrar").addEventListener("click", () => {
-  document.querySelector(".portada").style.display = "none";
-  document.getElementById("seccionCategorias").scrollIntoView({ behavior: "smooth" });
-});
+const btn = document.getElementById("btnEntrar");
+if (btn) {
+  btn.addEventListener("click", () => {
+    document.querySelector(".portada").style.display = "none";
+    document.getElementById("seccionCategorias").scrollIntoView({ behavior: "smooth" });
+  });
+}
 
-const categorias = ["Mujer", "Accesorios", "Hombre", "Tecnología",];
+const categorias = [
+  { nombre: "Mujer", clave: "women's clothing" },
+  { nombre: "Accesorios", clave: "jewelery" },
+  { nombre: "Hombre", clave: "men's clothing" },
+  { nombre: "Tecnología", clave: "electronics" }
+];
+
 const carrusel = document.getElementById("carruselCategorias");
 
 categorias.forEach(cat => {
   const div = document.createElement("div");
   div.className = "categoria-card";
-  div.textContent = cat;
+  div.textContent = cat.nombre;
   div.addEventListener("click", () => {
-    filtrarPorCategoria(cat.toLowerCase());
+    filtrarPorCategoria(cat.clave);
   });
   carrusel.appendChild(div);
 });
 
 async function cargarProductos() {
-  const res = await fetch("https://fakestoreapi.com/products");
-  const data = await res.json();
-  mostrarProductos(data);
+  try {
+    const res = await fetch("https://fakestoreapi.com/products");
+    const data = await res.json();
+    mostrarProductos(data);
+  } catch (error) {
+    console.error("Error al cargar productos:", error);
+  }
 }
 
 function mostrarProductos(productos) {
@@ -42,9 +55,10 @@ function mostrarProductos(productos) {
 }
 
 function filtrarPorCategoria(cat) {
-  fetch("https://fakestoreapi.com/products/category/" + cat)
+  fetch("https://fakestoreapi.com/products/category/" + encodeURIComponent(cat))
     .then(res => res.json())
-    .then(data => mostrarProductos(data));
+    .then(data => mostrarProductos(data))
+    .catch(err => console.error("Error al filtrar categoría:", err));
 }
 
 document.getElementById("searchInput").addEventListener("input", e => {
@@ -80,9 +94,12 @@ function renderizarCarrito() {
 }
 
 function agregarAlCarrito(producto) {
-  carrito.push(producto);
-  localStorage.setItem("carrito", JSON.stringify(carrito));
-  renderizarCarrito();
+  const existe = carrito.find(p => p.id === producto.id);
+  if (!existe) {
+    carrito.push(producto);
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+    renderizarCarrito();
+  }
 }
 
 function eliminarDelCarrito(index) {
