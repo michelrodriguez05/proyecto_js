@@ -1,3 +1,4 @@
+
 const btn = document.getElementById("btnEntrar");
 if (btn) {
   btn.addEventListener("click", () => {
@@ -5,7 +6,6 @@ if (btn) {
     document.getElementById("seccionCategorias").scrollIntoView({ behavior: "smooth" });
   });
 }
-
 const categorias = [
   { nombre: "Mujer", clave: "women's clothing" },
   { nombre: "Accesorios", clave: "jewelery" },
@@ -71,6 +71,7 @@ document.getElementById("searchInput").addEventListener("input", e => {
     });
 });
 
+
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 function renderizarCarrito() {
@@ -83,7 +84,7 @@ function renderizarCarrito() {
 
   carrito.forEach((item, index) => {
     const li = document.createElement("li");
-    li.innerHTML = `${item.title} - $${item.price}
+    li.innerHTML = `${item.title} - $${item.price.toFixed(2)}
       <button onclick="eliminarDelCarrito(${index})">X</button>`;
     lista.appendChild(li);
     totalCompra += item.price;
@@ -94,12 +95,9 @@ function renderizarCarrito() {
 }
 
 function agregarAlCarrito(producto) {
-  const existe = carrito.find(p => p.id === producto.id);
-  if (!existe) {
-    carrito.push(producto);
-    localStorage.setItem("carrito", JSON.stringify(carrito));
-    renderizarCarrito();
-  }
+  carrito.push(producto);
+  localStorage.setItem("carrito", JSON.stringify(carrito));
+  renderizarCarrito();
 }
 
 function eliminarDelCarrito(index) {
@@ -108,6 +106,7 @@ function eliminarDelCarrito(index) {
   renderizarCarrito();
 }
 
+// Mostrar/ocultar carrito (imagen del ícono)
 document.getElementById("abrirCarrito").addEventListener("click", () => {
   document.getElementById("carrito").classList.add("visible");
 });
@@ -115,5 +114,6 @@ document.getElementById("cerrarCarrito").addEventListener("click", () => {
   document.getElementById("carrito").classList.remove("visible");
 });
 
+// Carga inicial
 renderizarCarrito();
 cargarProductos();
