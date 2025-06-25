@@ -33,15 +33,13 @@ Toda la información se obtiene dinámicamente desde la [Fake Store API](https:/
    - Accesos rápidos desde el carrusel o sección de botones.
    - Categorías como: “Mujer”, “Hombre”, “Accesorios”, “Tecnología”.
 
-4. **Ordenamiento Dinámico**  
-   - Ordenar productos por nombre (A-Z) o precio (ascendente).
 
-5. **Carrito Interactivo**  
+4. **Carrito Interactivo**  
    - Ícono visible con contador de productos.
    - Lista desplegable con productos agregados.
    - Almacenamiento persistente con `localStorage`.
 
-6. **Responsive Design**  
+5. **Responsive Design**  
    - Diseño adaptado a dispositivos móviles y escritorio.
 
 ---
