@@ -22,8 +22,10 @@
     <div class="barra-superior">
       <a href="./index.html" id="XXOPIN"><h2 id="XXOPIN">XXOPIN</h2></a>
       
-
       <input type="text" id="searchInput" placeholder="Buscar producto..." />
+
+      <!-- NUEVO: Botón para ver el historial de compras -->
+      <button id="verHistorialBtn">Ver compras</button>
 
       <!-- Ícono del carrito -->
       <div class="carrito-icono" id="abrirCarrito">
@@ -35,8 +37,7 @@
     <!-- Contenedor de productos -->
     <div class="productos-grid" id="productsGrid"></div>
 
-   
-    
+  </section> <!-- Cierre de la sección de productos -->
 
   <!-- Carrito lateral -->
   <div class="carrito" id="carrito">
@@ -44,14 +45,28 @@
     <ul id="listaCarrito"></ul>
     <p>Total: $<span id="totalCarrito">0</span></p>
     
-    <!-- Botón para vaciar el carrito -->
-    <button id="vaciarCarrito">Vaciar carrito</button>
+    <!-- NUEVO: Contenedor para los botones de acción del carrito -->
+    <div class="carrito-acciones">
+        <button id="vaciarCarrito">Vaciar carrito</button>
+        <button id="btnComprar">Comprar</button> <!-- BOTÓN AÑADIDO -->
+    </div>
 
     <button id="cerrarCarrito">Cerrar</button>
+  </div>
+
+  <!-- NUEVO: Ventana Modal para el Historial de Compras -->
+  <!-- Se coloca al final del body para que se superponga a todo lo demás -->
+  <div id="historialModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" id="cerrarHistorial">×</span>
+        <h2>Historial de Compras</h2>
+        <div id="historialContenido">
+            <!-- El historial se insertará aquí dinámicamente con JavaScript -->
+        </div>
+    </div>
   </div>
 
   <!-- Script -->
   <script src="script.js"></script>
 </body>
 </html>
-

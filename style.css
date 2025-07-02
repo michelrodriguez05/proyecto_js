@@ -300,3 +300,157 @@ display: flex;
 }
 
 }
+
+/* ================================================= */
+/* === NUEVOS ESTILOS PARA HISTORIAL DE COMPRAS === */
+/* ================================================= */
+
+/* --- 1. Botones de Acción --- */
+
+/* Contenedor para los botones "Vaciar" y "Comprar" en el carrito */
+.carrito-acciones {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px; /* Espacio entre los botones */
+  margin-top: 20px;
+}
+
+/* Estilo para los botones dentro del contenedor de acciones */
+.carrito-acciones button {
+  flex-grow: 1; /* Hace que ambos botones ocupen el mismo espacio */
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+/* Estilo específico para el nuevo botón "Comprar" */
+#btnComprar {
+  background-color: lime;
+  color: black;
+}
+
+#btnComprar:hover {
+  background-color: rgb(255, 72, 0); /* Mismo hover que otros botones */
+  color: black;
+}
+
+/* Ajuste al botón "Vaciar" para que encaje con el nuevo layout */
+#vaciarCarrito {
+  background-color: #eee;
+  color: #333;
+}
+#vaciarCarrito:hover {
+  background-color: #ddd;
+}
+
+
+/* Estilo para el botón "Ver compras" en la barra superior */
+#verHistorialBtn {
+  padding: 8px 15px;
+  background-color: black;
+  color: lime;
+  border: 2px solid lime;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#verHistorialBtn:hover {
+  background-color: lime;
+  color: black;
+}
+
+
+/* --- 2. Ventana Modal para el Historial --- */
+
+/* El fondo oscuro semitransparente que cubre toda la pantalla */
+.modal {
+  display: none; /* Oculto por defecto, se activa con JS */
+  position: fixed; /* Se queda fijo aunque se haga scroll */
+  z-index: 1000; /* Se asegura de que esté por encima de todo */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* Permite scroll si el contenido es muy largo */
+  background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro translúcido */
+}
+
+/* El contenedor blanco del contenido de la modal */
+.modal-content {
+  background-color: #fff;
+  color: #333;
+  margin: 10% auto; /* Centrado vertical y horizontalmente */
+  padding: 25px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 600px;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0, 255, 0, 0.2);
+}
+
+/* El título dentro de la modal */
+.modal-content h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: black; /* Aseguramos el color del título */
+}
+
+/* El botón para cerrar (la 'X') */
+.close-btn {
+  color: #aaa;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  color: red;
+  text-decoration: none;
+}
+
+
+/* --- 3. Contenido del Historial (dentro de la modal) --- */
+
+/* Estilo para cada bloque de compra individual */
+.compra-item {
+  border-bottom: 1px solid #eee;
+  padding: 15px 0;
+  margin-bottom: 15px;
+}
+
+/* Quitar el borde del último elemento para un look más limpio */
+.compra-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.compra-item h4 {
+  margin: 0 0 8px 0;
+  font-size: 1.1rem;
+  color: #000;
+}
+
+.compra-item p {
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.compra-item ul {
+  list-style-type: none; /* Quitar los puntos de la lista */
+  padding-left: 15px;
+}
+
+.compra-item li {
+  color: #555;
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+}
