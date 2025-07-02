@@ -69,6 +69,16 @@ document.getElementById("btnQuitarFiltros").addEventListener("click", () => {
   document.getElementById("searchInput").value = "";
   aplicarFiltrosYBusqueda();
 });
+document.getElementById("btnFavoritos").addEventListener("click", () => {
+  const favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
+  if (favoritos.length > 0) {
+    mostrarProductos(favoritos);
+  } else {
+    alert("No tienes productos favoritos.");
+  }
+});
+
+
 
 document.getElementById("searchInput").addEventListener("input", e => {
   textoBusqueda = e.target.value.toLowerCase();
@@ -97,7 +107,6 @@ function renderizarCarrito() {
   const lista = document.getElementById("listaCarrito");
   const total = document.getElementById("totalCarrito");
   const contador = document.getElementById("contadorCarrito");
-  
 
   lista.innerHTML = "";
   let totalCompra = 0;
@@ -108,10 +117,9 @@ function renderizarCarrito() {
     li.innerHTML = `
       ${item.title} - $${item.price.toFixed(2)} x ${item.cantidad}
       <button onclick="modificarCantidad(${index}, 1)">+</button>
-
       <button onclick="modificarCantidad(${index}, -1)">-</button>
       <button onclick="eliminarDelCarrito(${index})">X</button>
-    `; 
+    `;
     lista.appendChild(li);
     totalCompra += item.price * item.cantidad;
     cantidadTotal += item.cantidad;
@@ -120,8 +128,6 @@ function renderizarCarrito() {
   total.textContent = totalCompra.toFixed(2);
   contador.textContent = cantidadTotal;
 }
-// guardar fecha de compra en un array dentro del localStorage
-
 
 function agregarAlCarrito(producto) {
   const index = carrito.findIndex(item => item.id === producto.id);
@@ -148,14 +154,6 @@ function modificarCantidad(index, cambio) {
   localStorage.setItem("carrito", JSON.stringify(carrito));
   renderizarCarrito();
 }
-function guardarfechacompra () {
-  const fechaCompra = new Date().toLocaleString();
-  let fechas = JSON.parse(localStorage.getItem("fechasCompra")) || [];
-  fechas.push(fechaCompra);
-  localStorage.setItem("fechasCompra", JSON.stringify(fechas));
-  
-}
-
 
 document.getElementById("vaciarCarrito").addEventListener("click", () => {
   carrito = [];
